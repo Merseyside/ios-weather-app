@@ -10,12 +10,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        ExtractedView()
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct ExtractedView: View {
+    var body: some View {
+        VStack {
+            Text("Hello, World!")
+            Text("Hello, World!")
+        }
     }
 }
