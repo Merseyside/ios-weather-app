@@ -8,6 +8,8 @@
 
 struct CurrentWeather {
     let lastUpdated: UInt32
+    let localTime: UInt32
+    let place: String
     let tempC: Float
     let feelsLikeC: Float
     let condition: String
@@ -16,6 +18,8 @@ struct CurrentWeather {
     
     init(
         lastUpdated: UInt32,
+        localTime: UInt32,
+        place: String,
         tempC: Float,
         feelsLikeC: Float,
         condition: String,
@@ -23,6 +27,8 @@ struct CurrentWeather {
         humidity: Int
     ) {
         self.lastUpdated = lastUpdated
+        self.localTime = localTime
+        self.place = place
         self.tempC = tempC
         self.feelsLikeC = feelsLikeC
         self.condition = condition

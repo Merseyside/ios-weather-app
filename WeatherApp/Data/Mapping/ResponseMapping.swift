@@ -16,12 +16,14 @@ extension CurrentWeatherResponse {
     
     func toDomain() -> CurrentWeather {
         return .init(
-            lastUpdated: lastUpdate,
-            tempC: tempC,
-            feelsLikeC: feelsLikeC,
-            condition: condition,
-            windSpeed: windSpeed,
-            humidity: humidity
+            lastUpdated: current.lastUpdated,
+            localTime: location.localTime,
+            place: location.place,
+            tempC: current.tempC,
+            feelsLikeC: current.feelsLikeC,
+            condition: current.condition.conditionText,
+            windSpeed: current.windSpeed,
+            humidity: current.humidity
         )
     }
 }

@@ -11,7 +11,7 @@ import Resolver
 
 struct CurrentWeatherView: View {
     
-    let viewModel: MainViewModel = Resolver.resolve()
+    @ObservedObject var viewModel: MainViewModel = Resolver.resolve()
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

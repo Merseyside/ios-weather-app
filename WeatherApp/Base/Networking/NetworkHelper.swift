@@ -20,7 +20,7 @@ class NetworkHelper {
             return Fail(error: error).eraseToAnyPublisher()
         }
         
-        return session.request(for: URLRequest(url: url))
+        return session.request(for: URLRequest(url: url), isLogging: true)
     }
 }
 
