@@ -12,15 +12,18 @@ import Combine
 class NetworkHelper {
     static func makeRequest<T>(
         session: URLSession,
-        with components: URLComponents
+        with request: Request
     ) -> AnyPublisher<T, Error> where T: Decodable {
-        
-        guard let url = components.url else {
-            let error = NetworkError.unknown("Couldn't create URL")
+    
+        guard let url = request.urlComponents.url else {
+            let error = NetworkError("Couldn't create URL")
             return Fail(error: error).eraseToAnyPublisher()
         }
         
-        return session.request(for: URLRequest(url: url), isLogging: true)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = request.method.rawValue
+        
+        return session.request(for: urlRequest, isLogging: true)
     }
 }
 

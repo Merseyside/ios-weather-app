@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/ivan/Documents/Workspace/ios/WeatherApp/WeatherApp/Data/Network/WeatherEndpoint.swift">
+   </FileRef>
+   <FileRef
       location = "group:WeatherApp.xcodeproj">
    </FileRef>
    <FileRef

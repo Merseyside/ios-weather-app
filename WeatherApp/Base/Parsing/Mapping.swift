@@ -17,6 +17,6 @@ func decode<T: Decodable>(
     return Just(data)
         .decode(type: T.self, decoder: decoder)
         .mapError { error in
-            DataTransferError.parsing(error) }
+            ParsingError(error: error) }
         .eraseToAnyPublisher()
 }

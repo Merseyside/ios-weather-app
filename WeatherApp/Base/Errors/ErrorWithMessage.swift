@@ -15,7 +15,7 @@ class ErrorWithMessage: Error {
     
     init(
         _ message: String? = nil,
-        _ error: Error? = nil
+        error: Error? = nil
     ) {
         self.message = message
         self.error = error

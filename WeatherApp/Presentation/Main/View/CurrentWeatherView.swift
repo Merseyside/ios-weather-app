@@ -11,10 +11,25 @@ import Resolver
 
 struct CurrentWeatherView: View {
     
-    @ObservedObject var viewModel: MainViewModel = Resolver.resolve()
+    @ObservedObject
+    var viewModel: MainViewModel = Resolver.resolve()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            ScrollView(.horizontal){
+
+            }
+        }
+        List(content: content)
+            .onAppear(perform: viewModel.refresh)
+            .navigationBarTitle(viewModel.currentWeather?.place ?? "loading")
+            .listStyle(GroupedListStyle())
+    }
+}
+
+private extension CurrentWeatherView {
+    func content() -> some View {
+        return Text("ejwe")
     }
 }
 

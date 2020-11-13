@@ -34,4 +34,8 @@ class MainViewModel: ObservableObject {
             }
         )
     }
+    
+    func refresh() {
+        getCurrentWeather()
+    }
 }

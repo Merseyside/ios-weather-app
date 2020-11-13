@@ -8,15 +8,37 @@
 
 import Foundation
 
-class TypeError: ErrorWithMessage {}
-class UnknownError: ErrorWithMessage {}
-class NoDataError: ErrorWithMessage {}
+class TypeError: ErrorWithMessage {
+    override init(_ message: String? = "Type error", error: Error? = nil) {
+        super.init(message)
+    }
+}
+class UnknownError: ErrorWithMessage {
+    override init(_ message: String? = "Unknown error", error: Error? = nil) {
+        super.init(message)
+    }
+}
+class NoDataError: ErrorWithMessage {
+    override init(_ message: String? = "No data error", error: Error? = nil) {
+        super.init(message)
+    }
+}
+class NetworkError: ErrorWithMessage {
+    override init(_ message: String? = "Network error", error: Error? = nil) {
+        super.init(message)
+    }
+}
+class ParsingError: ErrorWithMessage {
+    override init(_ message: String? = "Parsing error", error: Error? = nil) {
+        super.init(message)
+    }
+}
 class SessionError: ErrorWithMessage {
     let response: HTTPURLResponse
     
-    init(_ message: String? = nil, _ error: Error? = nil, response: HTTPURLResponse) {
+    init(_ message: String? = nil, error: Error? = nil, response: HTTPURLResponse) {
         self.response = response
         
-        super.init(message, error)
+        super.init(message, error: error)
     }
 }

@@ -11,7 +11,7 @@ import Combine
 
 class DefaultWeatherService: WeatherService {
     
-    private let requestCreator = WeatherRequestCreator()
+    private let requestCreator = WeatherEndpoint()
     private let session: URLSession
     
     init(session: URLSession) {
