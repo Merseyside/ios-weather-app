@@ -20,9 +20,9 @@ class DefaultCurrentWeatherRepository {
 
 extension DefaultCurrentWeatherRepository: CurrentWeatherRepository {
     
-    func getCurrentWeather(forCity city: String) -> AnyPublisher<CurrentWeather, Error> {
-        return weatherService.getCurrentWeather(forCity: city)
-            .map { $0.toDomain() }
+    func getCurrentWeather(forCities list: [String]) -> AnyPublisher<[CurrentWeather], Error> {
+        return weatherService.getCurrentWeather(forCities: list)
+            .map { responseList in responseList.map { response in response.toDomain() } }
             .eraseToAnyPublisher()
     }
 }

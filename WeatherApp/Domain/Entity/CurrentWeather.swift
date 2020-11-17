@@ -36,4 +36,8 @@ struct CurrentWeather {
         self.humidity = humidity
     }
     
+    static func getExampleModel() -> CurrentWeather {
+        return CurrentWeather(lastUpdated: 34629832, localTime: 734672, place: "Novosibirsk", tempC: 24.6, feelsLikeC: 24.1, condition: "Солнечно", windSpeed: 34, humidity: 32)
+    }
+    
 }

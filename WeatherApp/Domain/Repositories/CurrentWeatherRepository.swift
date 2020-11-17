@@ -10,5 +10,5 @@
 import Combine
 
 protocol CurrentWeatherRepository {
-    func getCurrentWeather(forCity city: String) -> AnyPublisher<CurrentWeather, Error>
+    func getCurrentWeather(forCities list: [String]) -> AnyPublisher<[CurrentWeather], Error>
 }

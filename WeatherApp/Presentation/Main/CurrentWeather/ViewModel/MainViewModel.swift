@@ -12,10 +12,9 @@ class MainViewModel: ObservableObject {
     
     let currentWeatherUseCase: GetCurrentWeatherUseCase
     
-    @Published var currentWeather: CurrentWeather? = nil
+    @Published var currentWeatherList: [CurrentWeather]? = nil
     
     init(currentWeatherUseCase: GetCurrentWeatherUseCase) {
-        print("ViewModel created")
         self.currentWeatherUseCase = currentWeatherUseCase
         
         getCurrentWeather()
@@ -23,10 +22,10 @@ class MainViewModel: ObservableObject {
     
     private func getCurrentWeather() {
         currentWeatherUseCase.execute(
-            params: Params(city: "moscow"),
-            onValue: { weather in
-                self.currentWeather = weather
-                print(weather)
+            params: Params(cities: ["moscow", "london", "berlin"]),
+            onValue: { weatherList in
+                self.currentWeatherList = weatherList
+                print(weatherList.first)
             },
             onError: { error in },
             onFinish: {
@@ -36,6 +35,6 @@ class MainViewModel: ObservableObject {
     }
     
     func refresh() {
-        getCurrentWeather()
+        //getCurrentWeather()
     }
 }

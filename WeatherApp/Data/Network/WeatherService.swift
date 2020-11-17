@@ -11,6 +11,6 @@ import Combine
 
 protocol WeatherService {
     
-    func getCurrentWeather(forCity city: String) -> AnyPublisher<CurrentWeatherResponse, Error>
+    func getCurrentWeather(forCities list: [String]) -> AnyPublisher<[CurrentWeatherResponse], Error>
 
 }

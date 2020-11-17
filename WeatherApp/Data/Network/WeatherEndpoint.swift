@@ -11,7 +11,6 @@ import Resolver
 
 class WeatherEndpoint: Endpoint {
     
-    @Injected
     struct WeatherAPI: API {
         var scheme: String = "https"
         var host: String = "api.weatherapi.com"

@@ -8,7 +8,7 @@
 
 import Combine
 
-class GetCurrentWeatherUseCase : UseCase<CurrentWeather, Params> {
+class GetCurrentWeatherUseCase : UseCase<[CurrentWeather], Params> {
     
     let repository: CurrentWeatherRepository
     
@@ -16,13 +16,13 @@ class GetCurrentWeatherUseCase : UseCase<CurrentWeather, Params> {
         self.repository = repository
     }
     
-    override func buildPublisher(params: Params) -> AnyPublisher<CurrentWeather, Error> {
-        return repository.getCurrentWeather(forCity: params.city)
+    override func buildPublisher(params: Params) -> AnyPublisher<[CurrentWeather], Error> {
+        return repository.getCurrentWeather(forCities: params.cities)
     }
 }
 
 struct Params {
-    let city: String
+    let cities: [String]
 }
 
 

@@ -21,8 +21,14 @@ class DefaultWeatherService: WeatherService {
 
 extension DefaultWeatherService {
     func getCurrentWeather(
-        forCity city: String
-    ) -> AnyPublisher<CurrentWeatherResponse, Error> {
+        forCities list: [String]
+    ) -> AnyPublisher<[CurrentWeatherResponse], Error> {
+        let publishers = list.map { city in createCityPublisher(forCity: city) }
+        return Publishers.zip(publishers)
+    }
+    
+    private func createCityPublisher(forCity city: String) -> AnyPublisher<CurrentWeatherResponse, Error> {
+        print(city)
         return NetworkHelper.makeRequest(
             session: session,
             with: requestCreator.makeRealtimeForecastComponents(withCity: city)
