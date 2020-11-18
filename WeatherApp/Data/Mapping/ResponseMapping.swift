@@ -14,8 +14,9 @@ class ResponseMapping {
 
 extension CurrentWeatherResponse {
     
-    func toDomain() -> CurrentWeather {
+    func toDomain(id: Int) -> CurrentWeather {
         return .init(
+            id: id,
             lastUpdated: current.lastUpdated,
             localTime: location.localTime,
             place: location.place,

@@ -8,22 +8,31 @@
 
 import SwiftUI
 import Resolver
+import SwiftUIPager
 
 struct MainView: View {
     
     @ObservedObject
     var viewModel: MainViewModel = Resolver.resolve()
     
+    @State var page: Int = 0
+    
     var body: some View {
-        ScrollView(.horizontal) {
-            HStack {
-                if (viewModel.currentWeatherList != nil) {
-                    ForEach(0..<viewModel.currentWeatherList!.count) { index in
-                        CurrentWeatherRowView(viewModel.currentWeatherList![index])
-                    }
-                }
-            }.background(Color.yellow)
-        }.background(Color.black)
+        if (viewModel.currentWeatherList != nil) {
+            Pager(page: $page, data: viewModel.currentWeatherList!, content: { data in
+                CurrentWeatherRowView(data)
+            }).background(Color.black)
+        } else {
+            Text("Loading").onAppear(perform: viewModel.refresh)
+        }        
+    }
+    
+    func makePageView() -> some View {
+        return PageView(viewModel.currentWeatherList!
+            .map { weather in CurrentWeatherRowView(weather)}
+        )
+        .aspectRatio(3/2, contentMode: .fit)
+        .background(Color.red)
     }
 }
 

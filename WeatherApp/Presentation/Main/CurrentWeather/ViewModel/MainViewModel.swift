@@ -16,14 +16,14 @@ class MainViewModel: ObservableObject {
     
     init(currentWeatherUseCase: GetCurrentWeatherUseCase) {
         self.currentWeatherUseCase = currentWeatherUseCase
-        
-        getCurrentWeather()
     }
     
     private func getCurrentWeather() {
         currentWeatherUseCase.execute(
             params: Params(cities: ["moscow", "london", "berlin"]),
             onValue: { weatherList in
+                
+                print("here \(weatherList.count)")
                 self.currentWeatherList = weatherList
                 print(weatherList.first)
             },
@@ -35,6 +35,6 @@ class MainViewModel: ObservableObject {
     }
     
     func refresh() {
-        //getCurrentWeather()
+        getCurrentWeather()
     }
 }

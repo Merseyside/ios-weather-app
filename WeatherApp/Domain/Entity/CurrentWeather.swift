@@ -6,7 +6,10 @@
 //  Copyright © 2020 Ivan. All rights reserved.
 //
 
-struct CurrentWeather {
+struct CurrentWeather: Equatable, Identifiable {
+    typealias ObjectIdentifier = Int
+    
+    let id: ObjectIdentifier
     let lastUpdated: UInt32
     let localTime: UInt32
     let place: String
@@ -17,6 +20,7 @@ struct CurrentWeather {
     let humidity: Int
     
     init(
+        id: Int,
         lastUpdated: UInt32,
         localTime: UInt32,
         place: String,
@@ -26,6 +30,7 @@ struct CurrentWeather {
         windSpeed: Float,
         humidity: Int
     ) {
+        self.id = id
         self.lastUpdated = lastUpdated
         self.localTime = localTime
         self.place = place
@@ -37,7 +42,7 @@ struct CurrentWeather {
     }
     
     static func getExampleModel() -> CurrentWeather {
-        return CurrentWeather(lastUpdated: 34629832, localTime: 734672, place: "Novosibirsk", tempC: 24.6, feelsLikeC: 24.1, condition: "Солнечно", windSpeed: 34, humidity: 32)
+        return CurrentWeather(id: 0, lastUpdated: 34629832, localTime: 734672, place: "Novosibirsk", tempC: 24.6, feelsLikeC: 24.1, condition: "Солнечно", windSpeed: 34, humidity: 32)
     }
     
 }

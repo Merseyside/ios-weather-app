@@ -22,7 +22,7 @@ extension DefaultCurrentWeatherRepository: CurrentWeatherRepository {
     
     func getCurrentWeather(forCities list: [String]) -> AnyPublisher<[CurrentWeather], Error> {
         return weatherService.getCurrentWeather(forCities: list)
-            .map { responseList in responseList.map { response in response.toDomain() } }
+            .map { responseList in responseList.enumerated().map { (index, response) in response.toDomain(id: index) } }
             .eraseToAnyPublisher()
     }
 }

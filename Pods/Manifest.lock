@@ -1,16 +1,20 @@
 PODS:
   - Resolver (1.0.7)
+  - SwiftUIPager (1.13.0)
 
 DEPENDENCIES:
   - Resolver
+  - SwiftUIPager
 
 SPEC REPOS:
   trunk:
     - Resolver
+    - SwiftUIPager
 
 SPEC CHECKSUMS:
   Resolver: da30396fcabb46790959209430a4a0a9e6e39849
+  SwiftUIPager: 022f9043921d75053c4a8f3eea0b298b6846ee3e
 
-PODFILE CHECKSUM: 4321e1be9d060ba3e611c33c0fb1d30b8c8510f3
+PODFILE CHECKSUM: a1692aaf0acb24d399b095b361092575ff438bf2
 
 COCOAPODS: 1.10.0
