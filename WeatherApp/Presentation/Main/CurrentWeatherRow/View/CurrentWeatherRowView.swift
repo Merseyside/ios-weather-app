@@ -18,9 +18,10 @@ struct CurrentWeatherRowView: View {
     
     var body: some View {
         return VStack {
-            Text(viewModel.getPlace())
+            Text(viewModel.getPlace()).textStyle(TitleStyle())
             //Text("6:30 p.m")
-        }.frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
+        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .topLeading)
+        .padding(.all)
         .background(Color.red)
     }
 }
