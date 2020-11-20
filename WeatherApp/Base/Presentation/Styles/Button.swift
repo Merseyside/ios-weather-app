@@ -22,6 +22,7 @@ struct FillStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(minWidth: 44, minHeight: 44)
+            .font(Font.title)
             .padding(.horizontal)
             .foregroundColor(configuration.isPressed ? .gray : .white)
             .background(Color.accentColor)

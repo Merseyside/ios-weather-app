@@ -18,11 +18,14 @@ struct CurrentWeatherRowView: View {
     
     var body: some View {
         return VStack {
-            Text(viewModel.getPlace()).textStyle(TitleStyle())
+            Text(viewModel.getPlace())
+                .font(.pageTitle)
+                .foregroundColor(Color.white)
+               
             //Text("6:30 p.m")
         }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .topLeading)
         .padding(.all)
-        .background(Color.red)
+        .background(Color.background)
     }
 }
 
