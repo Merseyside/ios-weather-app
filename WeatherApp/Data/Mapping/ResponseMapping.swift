@@ -19,6 +19,7 @@ extension CurrentWeatherResponse {
             id: id,
             lastUpdated: current.lastUpdated,
             localTime: location.localTime,
+            timeZone: location.timeZone,
             place: location.place,
             tempC: current.tempC,
             feelsLikeC: current.feelsLikeC,

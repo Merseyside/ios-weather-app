@@ -18,15 +18,18 @@ extension CurrentWeatherResponse {
         enum CodingKeys: String, CodingKey {
             case localTime = "localtime_epoch"
             case place = "name"
+            case timeZone = "tz_id"
         }
         
         let localTime: UInt32
+        let timeZone: String
         let place: String
         
         init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
             
             localTime = try values.decode(UInt32.self, forKey: .localTime)
+            timeZone = try values.decode(String.self, forKey: .timeZone)
             place = try values.decode(String.self, forKey: .place)
         }
     }

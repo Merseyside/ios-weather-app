@@ -6,12 +6,15 @@
 //  Copyright © 2020 Ivan. All rights reserved.
 //
 
+import Foundation
+
 struct CurrentWeather: Equatable, Identifiable {
     typealias ObjectIdentifier = Int
     
     let id: ObjectIdentifier
     let lastUpdated: UInt32
     let localTime: UInt32
+    let timeZone: String
     let place: String
     let tempC: Float
     let feelsLikeC: Float
@@ -23,6 +26,7 @@ struct CurrentWeather: Equatable, Identifiable {
         id: Int,
         lastUpdated: UInt32,
         localTime: UInt32,
+        timeZone: String,
         place: String,
         tempC: Float,
         feelsLikeC: Float,
@@ -33,6 +37,7 @@ struct CurrentWeather: Equatable, Identifiable {
         self.id = id
         self.lastUpdated = lastUpdated
         self.localTime = localTime
+        self.timeZone = timeZone
         self.place = place
         self.tempC = tempC
         self.feelsLikeC = feelsLikeC
@@ -42,7 +47,7 @@ struct CurrentWeather: Equatable, Identifiable {
     }
     
     static func getExampleModel() -> CurrentWeather {
-        return CurrentWeather(id: 0, lastUpdated: 34629832, localTime: 734672, place: "Novosibirsk", tempC: 24.6, feelsLikeC: 24.1, condition: "Солнечно", windSpeed: 34, humidity: 32)
+        return CurrentWeather(id: 0, lastUpdated: 34629832, localTime: 734672, timeZone: "UTC", place: "Novosibirsk", tempC: 24.6, feelsLikeC: 24.1, condition: "Солнечно", windSpeed: 34, humidity: 32)
     }
     
 }

@@ -17,15 +17,34 @@ struct CurrentWeatherRowView: View {
     }
     
     var body: some View {
-        return VStack {
-            Text(viewModel.getPlace())
-                .font(.pageTitle)
-                .foregroundColor(Color.white)
-               
-            //Text("6:30 p.m")
-        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .topLeading)
+        return VStack() {
+            getTopView()
+            Spacer()
+        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
         .padding(.all)
         .background(Color.background)
+    }
+    
+    func getTopView() -> some View {
+        return HStack {
+            VStack {
+                HStack {
+                    Text(viewModel.getPlace())
+                        .font(.pageTitle)
+                        .foregroundColor(Color.white)
+                    
+                    Spacer()
+                }
+                
+                HStack {
+                    Text(viewModel.getTime())
+                        .font(.body)
+                        .foregroundColor(Color.white)
+                    
+                    Spacer()
+                }
+            }
+        }
     }
 }
 

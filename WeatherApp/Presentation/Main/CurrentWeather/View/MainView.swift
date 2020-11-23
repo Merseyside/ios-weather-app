@@ -18,11 +18,13 @@ struct MainView: View {
     @State var page: Int = 0
     
     var body: some View {
-        if (viewModel.currentWeatherList != nil) {
-            makeCurrentWeatherView()
-        } else {
-            Text("Loading").onAppear(perform: viewModel.refresh)
-        }        
+        VStack(alignment: .leading) {
+            if (viewModel.currentWeatherList != nil) {
+                makeCurrentWeatherView()
+            } else {
+                Text("Loading").onAppear(perform: viewModel.loadData)
+            }
+        }.background(Color.background)
     }
     
     func makePageView() -> some View {
@@ -36,15 +38,14 @@ struct MainView: View {
     func makeCurrentWeatherView() -> some View {
         return VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
             PageIndicator(viewModel.currentWeatherList!.count, $page)
-                .padding(.all)
+                .padding(EdgeInsets(top: .veryLargeInset, leading: .defaultInset, bottom: .defaultInset, trailing: .defaultInset))
             
             Pager(page: $page, data: viewModel.currentWeatherList!, content: { data in
                 CurrentWeatherRowView(data)
             })
             .itemSpacing(10)
             .rotation3D()
-            .background(Color.black)
-        }).background(Color.blue)
+        })
     }
 }
 
