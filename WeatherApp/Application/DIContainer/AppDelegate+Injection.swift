@@ -16,8 +16,18 @@ extension Resolver: ResolverRegistering {
     }
     
     public static func registerAppServices() {
-        register { GetCurrentWeatherUseCase(repository: resolve()) }
-        register { DefaultCurrentWeatherRepository(weatherService: resolve()) as CurrentWeatherRepository }
-        register { DefaultWeatherService(session: resolve()) as WeatherService }
+        register { GetCurrentWeatherUseCase(repository: resolve()) }.scope(application)
+        register { DefaultCurrentWeatherRepository(weatherService: resolve()) as CurrentWeatherRepository }.scope(application)
+        register { DefaultWeatherService(session: resolve()) as WeatherService }.scope(application)
+        register { (getWeatherConditionsModel()!) as [WeatherConditionsModel] }.scope(application)
+    }
+    
+    static func getWeatherConditionsModel() -> [WeatherConditionsModel]? {
+        do {
+            return try readJsonFileToCollection(resource: "weather_conditions")
+        } catch {
+            log("Couldn't decode json file")
+            return nil
+        }
     }
 }

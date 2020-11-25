@@ -42,3 +42,9 @@ class SessionError: ErrorWithMessage {
         super.init(message, error: error)
     }
 }
+class NoSuchFileError: ErrorWithMessage {
+    override init(_ message: String? = "No such file error", error: Error? = nil) {
+        super.init(message)
+    }
+}
+

@@ -18,12 +18,14 @@ extension CurrentWeatherResponse {
         return .init(
             id: id,
             lastUpdated: current.lastUpdated,
+            isDay: current.isDay != 0,
             localTime: location.localTime,
             timeZone: location.timeZone,
             place: location.place,
             tempC: current.tempC,
             feelsLikeC: current.feelsLikeC,
             condition: current.condition.conditionText,
+            conditionCode: current.condition.conditionCode,
             windSpeed: current.windSpeed,
             humidity: current.humidity
         )

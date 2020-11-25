@@ -39,6 +39,7 @@ extension CurrentWeatherResponse {
     struct Current: Decodable {
         enum CodingKeys: String, CodingKey {
             case lastUpdated = "last_updated_epoch"
+            case isDay = "is_day"
             case tempC = "temp_c"
             case feelsLikeC = "feelslike_c"
             case condition
@@ -47,6 +48,7 @@ extension CurrentWeatherResponse {
         }
         
         let lastUpdated: UInt32
+        let isDay: Int
         let tempC: Float
         let feelsLikeC: Float
         let condition: Condition
@@ -57,6 +59,7 @@ extension CurrentWeatherResponse {
             let values = try decoder.container(keyedBy: CodingKeys.self)
             
             lastUpdated = try values.decode(UInt32.self, forKey: .lastUpdated)
+            isDay = try values.decode(Int.self, forKey: .isDay)
             tempC = try values.decode(Float.self, forKey: .tempC)
             feelsLikeC = try values.decode(Float.self, forKey: .feelsLikeC)
             condition = try values.decode(Condition.self, forKey: .condition)
@@ -71,14 +74,17 @@ extension CurrentWeatherResponse {
        
         enum CodingKeys: String, CodingKey {
             case conditionText = "text"
+            case conditionCode = "code"
         }
         
         let conditionText: String
+        let conditionCode: Int
         
         init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
             
             conditionText = try values.decode(String.self, forKey: .conditionText)
+            conditionCode = try values.decode(Int.self, forKey: .conditionCode)
         }
     }
 }

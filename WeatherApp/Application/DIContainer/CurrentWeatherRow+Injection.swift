@@ -10,7 +10,8 @@ import Foundation
 import Resolver
 
 extension CurrentWeatherRowView: Resolving {
+    
     func makeViewModel(_ currentWeather: CurrentWeather) -> CurrentWeatherRowViewModel {
-        return CurrentWeatherRowViewModel(currentWeather)
+        return CurrentWeatherRowViewModel(currentWeather, resolver.resolve())
     }
 }

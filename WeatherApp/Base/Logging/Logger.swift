@@ -17,6 +17,8 @@ class Logger {
         return Logger()
     }()
     
+    private init() {}
+    
     static func setEnabled(isEnabled: Bool) {
         shared.isEnabled = isEnabled
     }
@@ -25,9 +27,9 @@ class Logger {
         shared.isDebug = isDebug
     }
     
-    static func log(msg: Any? = "Empty msg") {
+    static func log(_ msg: Any? = "Empty msg") {
         if (isLogging()) {
-            //print()
+            print(adoptMsg(msg: msg))
         }
     }
     

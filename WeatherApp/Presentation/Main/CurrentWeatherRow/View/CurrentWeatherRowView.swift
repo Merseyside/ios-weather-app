@@ -18,9 +18,18 @@ struct CurrentWeatherRowView: View {
     
     var body: some View {
         return VStack() {
-            getTopView()
-            Spacer()
-        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+            VStack(alignment: .leading) {
+                getTopView()
+                Spacer()
+                getTempView()
+                getConditionWeather()
+            }
+            
+            Divider().foregroundColor(Color.red).padding(.all, 20)
+            VStack {
+                
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100, alignment: .leading)
+        }
         .padding(.all)
         .background(Color.background)
     }
@@ -38,12 +47,28 @@ struct CurrentWeatherRowView: View {
                 
                 HStack {
                     Text(viewModel.getTime())
-                        .font(.body)
+                        .font(.bodySecondary)
                         .foregroundColor(Color.white)
                     
                     Spacer()
                 }
             }
+        }
+    }
+    
+    func getTempView() -> some View {
+        return Text(viewModel.getTemp())
+            .font(Font.system(size: .temperatureTextSize, weight: Font.Weight.light, design: Font.Design.default))
+            .foregroundColor(Color.white)
+    }
+    
+    func getConditionWeather() -> some View {
+        return HStack(alignment: .center) {
+            Image(viewModel.getConditionIcon())
+            
+            Text(viewModel.getConditionText())
+                .font(.itemTitle)
+                .foregroundColor(Color.white)
         }
     }
 }
