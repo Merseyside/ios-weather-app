@@ -15,6 +15,14 @@ class ResponseMapping {
 extension CurrentWeatherResponse {
     
     func toDomain(id: Int) -> CurrentWeather {
+        
+        var conditionList = [ConditionItem]()
+        
+        conditionList.append(ConditionItem(title: "Feels", value: current.feelsLikeC, unit: "C"))
+        conditionList.append(ConditionItem(title: "Humidity", value: current.humidity, unit: "%"))
+        conditionList.append(ConditionItem(title: "Wind", value: current.windSpeed, unit: "kmp/h"))
+        conditionList.append(ConditionItem(title: "Clouds", value: current.cloudCoverage, unit: "%"))
+        
         return .init(
             id: id,
             lastUpdated: current.lastUpdated,
@@ -23,11 +31,9 @@ extension CurrentWeatherResponse {
             timeZone: location.timeZone,
             place: location.place,
             tempC: current.tempC,
-            feelsLikeC: current.feelsLikeC,
             condition: current.condition.conditionText,
             conditionCode: current.condition.conditionCode,
-            windSpeed: current.windSpeed,
-            humidity: current.humidity
+            conditionList: conditionList
         )
     }
 }

@@ -27,8 +27,8 @@ struct CurrentWeatherRowView: View {
             
             Divider().foregroundColor(Color.red).padding(.all, 20)
             VStack {
-                
-            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100, alignment: .leading)
+                getConditionList()
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 120, alignment: .leading)
         }
         .padding(.all)
         .background(Color.background)
@@ -40,6 +40,7 @@ struct CurrentWeatherRowView: View {
                 HStack {
                     Text(viewModel.getPlace())
                         .font(.pageTitle)
+                        .fontWeight(Font.Weight.medium)
                         .foregroundColor(Color.white)
                     
                     Spacer()
@@ -48,6 +49,7 @@ struct CurrentWeatherRowView: View {
                 HStack {
                     Text(viewModel.getTime())
                         .font(.bodySecondary)
+                        .fontWeight(Font.Weight.medium)
                         .foregroundColor(Color.white)
                     
                     Spacer()
@@ -68,7 +70,24 @@ struct CurrentWeatherRowView: View {
             
             Text(viewModel.getConditionText())
                 .font(.itemTitle)
+                .fontWeight(Font.Weight.medium)
                 .foregroundColor(Color.white)
+        }
+    }
+    
+    func getConditionList() -> some View {
+        return ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(Array(viewModel.getConditionList().enumerated()), id: \.offset) { (index, item) in
+                    ConditionView(conditionItem: item)
+                    if index != viewModel.getConditionListCount() - 1 {
+                        Divider()
+                            .background(Color.gray)
+                            .padding(.bottom, 8)
+                            .padding(.top, 8)
+                    }
+                }
+            }
         }
     }
 }

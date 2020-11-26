@@ -45,6 +45,7 @@ extension CurrentWeatherResponse {
             case condition
             case windSpeed = "wind_kph"
             case humidity
+            case cloudCoverage = "cloud"
         }
         
         let lastUpdated: UInt32
@@ -54,6 +55,7 @@ extension CurrentWeatherResponse {
         let condition: Condition
         let windSpeed: Float
         let humidity: Int
+        let cloudCoverage: Int
     
         init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -65,6 +67,7 @@ extension CurrentWeatherResponse {
             condition = try values.decode(Condition.self, forKey: .condition)
             windSpeed = try values.decode(Float.self, forKey: .windSpeed)
             humidity = try values.decode(Int.self, forKey: .humidity)
+            cloudCoverage = try values.decode(Int.self, forKey: .cloudCoverage)
         }
     }
 }
@@ -75,6 +78,7 @@ extension CurrentWeatherResponse {
         enum CodingKeys: String, CodingKey {
             case conditionText = "text"
             case conditionCode = "code"
+           
         }
         
         let conditionText: String

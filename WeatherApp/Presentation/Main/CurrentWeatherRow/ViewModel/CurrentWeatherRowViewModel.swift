@@ -13,6 +13,7 @@ class CurrentWeatherRowViewModel {
     private let currentWeather: CurrentWeather
     private let weatherConditionModels: [WeatherConditionsModel]
     
+    
     init(
         _ currentWeather: CurrentWeather,
         _ weatherConditionModels: [WeatherConditionsModel]) {
@@ -52,5 +53,13 @@ class CurrentWeatherRowViewModel {
     
     func getConditionText() -> String {
         return currentWeather.conditionText
+    }
+    
+    func getConditionList() -> [ConditionItem] {
+        return currentWeather.conditionList
+    }
+    
+    func getConditionListCount() -> Int {
+        return getConditionList().count
     }
 }

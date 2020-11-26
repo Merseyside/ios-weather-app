@@ -9,5 +9,5 @@
 import SwiftUI
 
 extension CGFloat {
-    static let temperatureTextSize: CGFloat = 64
+    static let temperatureTextSize: CGFloat = 76
 }

@@ -28,6 +28,9 @@
 		2C5208BC25666B7D00D56CCA /* BaseTextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5208BB25666B7D00D56CCA /* BaseTextStyles.swift */; };
 		2C5208BF25666C3600D56CCA /* BaseButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5208BE25666C3600D56CCA /* BaseButtonStyles.swift */; };
 		2C5208CA25666F8000D56CCA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5208C925666F8000D56CCA /* Colors.swift */; };
+		2C5AAB14256F77ED00D299B1 /* ConditionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AAB13256F77ED00D299B1 /* ConditionItem.swift */; };
+		2C5AAB17256F79FC00D299B1 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AAB16256F79FC00D299B1 /* Number.swift */; };
+		2C5AAB1A256F7DC900D299B1 /* ConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AAB19256F7DC900D299B1 /* ConditionView.swift */; };
 		2C830630255CF25B00533F9A /* MainView+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83062F255CF25B00533F9A /* MainView+Injection.swift */; };
 		2C830633255D0E8100533F9A /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C830632255D0E8100533F9A /* Completion.swift */; };
 		2C830636255D209E00533F9A /* URLSessionCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C830635255D209E00533F9A /* URLSessionCombine.swift */; };
@@ -88,6 +91,9 @@
 		2C5208BB25666B7D00D56CCA /* BaseTextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextStyles.swift; sourceTree = "<group>"; };
 		2C5208BE25666C3600D56CCA /* BaseButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonStyles.swift; sourceTree = "<group>"; };
 		2C5208C925666F8000D56CCA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2C5AAB13256F77ED00D299B1 /* ConditionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionItem.swift; sourceTree = "<group>"; };
+		2C5AAB16256F79FC00D299B1 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		2C5AAB19256F7DC900D299B1 /* ConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionView.swift; sourceTree = "<group>"; };
 		2C83062F255CF25B00533F9A /* MainView+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+Injection.swift"; sourceTree = "<group>"; };
 		2C830632255D0E8100533F9A /* Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completion.swift; sourceTree = "<group>"; };
 		2C830635255D209E00533F9A /* URLSessionCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionCombine.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 				2C30E04B256289BD00663560 /* Publishers.swift */,
 				2CCFA060256789F600C3081E /* UIColor.swift */,
 				2C358A2A256E458C0008C44D /* Array.swift */,
+				2C5AAB16256F79FC00D299B1 /* Number.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				2C30E05E2563E35100663560 /* CurrentWeatherRowView.swift */,
+				2C5AAB19256F7DC900D299B1 /* ConditionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE6BF96255A481F0065797C /* CurrentWeather.swift */,
+				2C5AAB13256F77ED00D299B1 /* ConditionItem.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -687,6 +696,7 @@
 				2CE6BFC5255BBAE80065797C /* ErrorWithMessage.swift in Sources */,
 				2C30E04C256289BD00663560 /* Publishers.swift in Sources */,
 				2CE6BF94255A47C20065797C /* CurrentWeatherRepository.swift in Sources */,
+				2C5AAB1A256F7DC900D299B1 /* ConditionView.swift in Sources */,
 				2C0A6B39255E6A920056993E /* Endpoint.swift in Sources */,
 				2C358A2B256E458C0008C44D /* Array.swift in Sources */,
 				2CE6BF74255938CB0065797C /* MainViewModel.swift in Sources */,
@@ -699,12 +709,14 @@
 				2CE6BF7B25594BD20065797C /* Mapping.swift in Sources */,
 				2CE6BF5325592F4A0065797C /* AppDelegate.swift in Sources */,
 				2CE6BF76255942D00065797C /* AppConfigurations.swift in Sources */,
+				2C5AAB17256F79FC00D299B1 /* Number.swift in Sources */,
 				2CEEBC8A255BE4AB0049EB01 /* MainView.swift in Sources */,
 				2CCFA0642567945500C3081E /* BaseFonts.swift in Sources */,
 				2CE6BFB8255A93B00065797C /* Cancellable.swift in Sources */,
 				2C30E05025639C1400663560 /* Logger.swift in Sources */,
 				2CE6BFC0255BABD20065797C /* UseCase.swift in Sources */,
 				2CCFA061256789F600C3081E /* UIColor.swift in Sources */,
+				2C5AAB14256F77ED00D299B1 /* ConditionItem.swift in Sources */,
 				2C83063A255D303300533F9A /* Handler.swift in Sources */,
 				2C01A5A62564FA0F008A914C /* PageViewController.swift in Sources */,
 				2CE6BFBC255BAB950065797C /* GetCurrentWeatherUseCase.swift in Sources */,

@@ -9,6 +9,10 @@
 import Foundation
 
 struct CurrentWeather: Equatable, Identifiable {
+    static func == (lhs: CurrentWeather, rhs: CurrentWeather) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     typealias ObjectIdentifier = Int
     
     let id: ObjectIdentifier
@@ -18,11 +22,9 @@ struct CurrentWeather: Equatable, Identifiable {
     let timeZone: String
     let place: String
     let tempC: Float
-    let feelsLikeC: Float
     let conditionText: String
     let conditionCode: Int
-    let windSpeed: Float
-    let humidity: Int
+    let conditionList: [ConditionItem]
     
     init(
         id: Int,
@@ -32,11 +34,9 @@ struct CurrentWeather: Equatable, Identifiable {
         timeZone: String,
         place: String,
         tempC: Float,
-        feelsLikeC: Float,
         condition: String,
         conditionCode: Int,
-        windSpeed: Float,
-        humidity: Int
+        conditionList: [ConditionItem]
     ) {
         self.id = id
         self.lastUpdated = lastUpdated
@@ -45,15 +45,13 @@ struct CurrentWeather: Equatable, Identifiable {
         self.timeZone = timeZone
         self.place = place
         self.tempC = tempC
-        self.feelsLikeC = feelsLikeC
         self.conditionText = condition
         self.conditionCode = conditionCode
-        self.windSpeed = windSpeed
-        self.humidity = humidity
+        self.conditionList = conditionList
     }
     
     static func getExampleModel() -> CurrentWeather {
-        return CurrentWeather(id: 0, lastUpdated: 34629832, isDay: true, localTime: 734672, timeZone: "UTC", place: "Novosibirsk", tempC: 24.6, feelsLikeC: 24.1, condition: "Солнечно", conditionCode: 1000, windSpeed: 34, humidity: 32)
+        return CurrentWeather(id: 0, lastUpdated: 34629832, isDay: true, localTime: 734672, timeZone: "UTC", place: "Novosibirsk", tempC: 24.6, condition: "Солнечно", conditionCode: 1000, conditionList: [ConditionItem(title: "humidity", value: 32, unit: "%")])
     }
     
 }
